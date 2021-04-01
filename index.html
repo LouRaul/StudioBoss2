@@ -18,7 +18,7 @@ Coded by www.creative-tim.com
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <title>
     Abbey Chase Yoga
   </title>
@@ -36,10 +36,11 @@ Coded by www.creative-tim.com
 
 <body class="about-us">
   <!-- Navbar Transparent -->
-  <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent ">
+  <nav class="navbar navbar-expand-lg sticky-top position-absolute nav-fixed top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent ">
     <div class="container">
       <a class="navbar-brand  text-white " href="#" rel="tooltip" title="Abbey Chase Yoga" data-placement="bottom" target="_blank">
-        <img src="assets/img/Logo.png" alt="Abbey Logo" width="140px">
+        <img src="assets/img/Logo.png" class="logo-load" alt="Abbey Logo" width="140px">
+        <img src="assets/img/Logo-black.png" class="d-none logo-scroll" alt="Abbey Logo" width="90px">
       </a>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon mt-2">
@@ -51,34 +52,34 @@ Coded by www.creative-tim.com
       <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0  ps-lg-5" id="navigation">
         <ul class="navbar-nav navbar-nav-hover w-100 justify-content-end">
           <li class="nav-item  mx-2 ms-lg-2">
-            <a href="#classes" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" >
+            <a href="#classes" class="underline nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" >
               Classes
             </a>
           </li>
           <li class="nav-item  mx-2 ms-lg-2">
-            <a href="#schedule" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" >
+            <a href="#schedule" class="underline nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" >
               Schedule
             </a>
           </li>
           <li class="nav-item  mx-2 ms-lg-2">
-            <a href="#About" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" >
+            <a href="#About" class="underline nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" >
               About
             </a>
           </li>
           <li class="nav-item  mx-2 ms-lg-2">
-            <a href="#contact" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" >
+            <a href="#contact" class="underline nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" >
               Contact
             </a>
           </li>
 
           <li class="nav-item  mx-2 ms-lg-2">
-            <a href="#contact" class="nav-link mt-1 ps-2 d-flex justify-content-between cursor-pointer align-items-center" >
+            <a href="#contact" class="nav-link underline mt-1 ps-2 d-flex justify-content-between cursor-pointer align-items-center" >
               <i class="fa fa-facebook"></i>
             </a>
           </li>
 
           <li class="nav-item  mx-2 ms-lg-2">
-            <a href="#contact" class="nav-link ps-2 mt-1  d-flex justify-content-between cursor-pointer align-items-start" >
+            <a href="#contact" class="nav-link underline ps-2 mt-1  d-flex justify-content-between cursor-pointer align-items-start" >
               <i class="fa fa-instagram"></i>
             </a>
           </li>
@@ -534,6 +535,29 @@ Coded by www.creative-tim.com
         }
       });
     }
+  </script>
+
+  <!--
+    Fixed navBar
+  -->
+  <script>
+    const navbar = document.querySelector('.nav-fixed');
+    const logoScroll = document.querySelector('.logo-scroll');
+    const logoLoad = document.querySelector('.logo-load');
+    const underline = document.querySelectorAll('.underline');
+    window.onscroll = () => {
+    if (window.scrollY > 550) {
+        navbar.classList.add('nav-active');
+        navbar.classList.remove('position-absolute', 'navbar-transparent', 'shadow-none');
+        logoLoad.classList.add('d-none');
+        logoScroll.classList.remove('d-none');
+    } else {
+        navbar.classList.remove('nav-active');
+        navbar.classList.add('position-absolute', 'navbar-transparent', 'shadow-none');
+        logoLoad.classList.remove('d-none');
+        logoScroll.classList.add('d-none');
+    }
+};
   </script>
 </body>
 
