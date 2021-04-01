@@ -544,18 +544,24 @@ Coded by www.creative-tim.com
     const navbar = document.querySelector('.nav-fixed');
     const logoScroll = document.querySelector('.logo-scroll');
     const logoLoad = document.querySelector('.logo-load');
-    const underline = document.querySelectorAll('.underline');
+    const navLink = document.querySelectorAll('.nav-link');
     window.onscroll = () => {
-    if (window.scrollY > 550) {
+    if (window.scrollY > 600) {
         navbar.classList.add('nav-active');
         navbar.classList.remove('position-absolute', 'navbar-transparent', 'shadow-none');
         logoLoad.classList.add('d-none');
         logoScroll.classList.remove('d-none');
+        [].forEach.call(navLink, function(el) {
+	      el.classList.add("nav-link-dark");
+});
     } else {
         navbar.classList.remove('nav-active');
         navbar.classList.add('position-absolute', 'navbar-transparent', 'shadow-none');
         logoLoad.classList.remove('d-none');
         logoScroll.classList.add('d-none');
+        [].forEach.call(navLink, function(el) {
+	      el.classList.remove("nav-link-dark");
+});
     }
 };
   </script>
